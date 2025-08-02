@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Doctor = require("../models/Doctor");
+const { loginDoctor } = require("../controllers/doctorController");
+
+// login
+router.post("/login", loginDoctor);
 
 // Get all doctors
 router.get("/", async (req, res) => {
