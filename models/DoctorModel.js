@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const doctorSchema = new mongoose.Schema({
   name: String,
@@ -8,4 +8,4 @@ const doctorSchema = new mongoose.Schema({
 
 const Doctor = mongoose.models.Doctor || mongoose.model("Doctor", doctorSchema);
 
-export default Doctor;
+module.exports = Doctor;
