@@ -1,10 +1,11 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const StaffSchema = new mongoose.Schema({
-  username: String,
-  password: String,
+const staffSchema = new mongoose.Schema({
   name: String,
   specialization: String,
+  contact: String,
 });
 
-module.exports = mongoose.model("Doctor", StaffSchema);
+const Staff = mongoose.models.Staff || mongoose.model("Staff", staffSchema);
+
+export default Staff;
