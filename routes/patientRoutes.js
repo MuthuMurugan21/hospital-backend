@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Patient = require("../models/Patient");
+const authMiddleware = require("../middleware/authMiddleware");
+const { getAllPatients, addPatient } = require("../controllers/authController");
+
+router.get("/patients", authMiddleware, getAllPatients);
+router.post("/add", authMiddleware, addPatient);
 
 router.get("/", async (req, res) => {
   const patients = await Patient.find();
